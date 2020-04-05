@@ -1,0 +1,2 @@
+class ClTokensController < ApplicationController
+end
