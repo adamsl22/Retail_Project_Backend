@@ -4,7 +4,7 @@ class FavoriteItemsController < ApplicationController
     end
 
     def index
-        render json: FavoriteItem.all
+        render json: FavoriteItem.all, include: "item.retailer"
     end
 
     def update
