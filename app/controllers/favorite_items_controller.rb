@@ -1,10 +1,15 @@
 class FavoriteItemsController < ApplicationController
     def create
-        render json: FavoriteItem.create(favorite_item_params);
+        render json: FavoriteItem.create(favorite_item_params)
     end
 
     def index
-        render json: FavoriteItem.all
+        render json: FavoriteItem.all, include: "item.retailer"
+    end
+
+    def update
+        favorite_item = FavoriteItem.find(params[:id])
+        render json: favorite_item.update(favorite_item_params)
     end
 
     def destroy
