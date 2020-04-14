@@ -5,12 +5,19 @@ class ItemsController < ApplicationController
 
     def update
         item = Item.find(params[:id])
-        render json: item.update(item_params)
+        item.update(item_params)
+        # item.image.attach(params[:image])
+        photo = url_for(item.image)
+        puts "---"
+        puts photo
+        puts "---"
+        item.update(image_url: photo)
+        render json: item
     end
 
     private
 
     def item_params
-        params.require(:item).permit(:image)
+        params.permit(:image)
     end
 end
