@@ -4,7 +4,7 @@ class FavoriteStoresController < ApplicationController
     end
 
     def index
-        render json: FavoriteStore.all
+        render json: FavoriteStore.all, include: "location.retailer"
     end
 
     def destroy

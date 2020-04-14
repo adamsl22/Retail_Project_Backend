@@ -101,4 +101,4 @@
 
 # User.create(username:"Test 1")
 
-FavoriteItem.delete_all
+FavoriteStore.create(user_id: 1, location_id: 1)
