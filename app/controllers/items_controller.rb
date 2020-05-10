@@ -6,7 +6,6 @@ class ItemsController < ApplicationController
     def update
         item = Item.find(params[:id])
         item.update(item_params)
-        # item.image.attach(params[:image])
         photo = url_for(item.image)
         puts "---"
         puts photo
